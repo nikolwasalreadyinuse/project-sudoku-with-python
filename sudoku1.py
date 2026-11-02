@@ -2,6 +2,11 @@ import sys
 import clingo
 
 class ClingoApp(clingo.application.Application):
+    def print_model(self, model, printer):
+        symbols = sorted(model.symbols(shown=True))
+        print(" ".join(str(s) for s in symbols))
+        sys.stdout.flush()
+
     def main(self, ctl, files):
         ctl.load("sudoku.lp")
 
