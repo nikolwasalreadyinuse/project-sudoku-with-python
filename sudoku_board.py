@@ -8,7 +8,23 @@ class Sudoku:
 
     def __str__(self) -> str:
         s = ""
-        # YOUR CODE HERE
+        
+        for row in range(1, 10):
+            if row > 1 and (row - 1) % 3 == 0:
+                s += "\n"
+
+            for col in range(1, 10):
+                s += str(self.sudoku[(row, col)])
+
+                if col < 9:
+                    if col % 3 == 0:
+                        s += "  "
+                    else:
+                        s += " "
+
+            if row < 9:
+                s += "\n"
+
         return s
 
     @classmethod
